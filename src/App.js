@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+
+import React, { Component } from 'react'
+import Profil from './components/Profil';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+  state= {
+    display : true
+  }
+  render() {
+    return (
+      <div className="App">
+        
+        <button onClick={()=> this.setState({display :! this.state.display})} style={{marginTop:'100px' , backgroundColor:"red"}}>{this.state.display ? "Hide Profil" : "Display Profil"}</button> <br/>
+        
+        {
+        this.state.display ?
+        <Profil/> : ""
+     }
+      </div>
+    )
+  }
 }
 
-export default App;
